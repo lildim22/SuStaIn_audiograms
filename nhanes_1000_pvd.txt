@@ -1,0 +1,59 @@
+
+import pickle
+import pandas as pd
+import os
+import pySuStaIn
+import matplotlib.pyplot as plt
+
+with open('sustain_output_full.pkl', 'rb') as f:
+	output_folder, dataset_name, N_S_max, N_iterations_MCMC, zdata, sustain_input = pickle.load(f)
+
+
+# Load necessary variables saved from script 1
+with open('sustain_output_full.pkl', 'rb') as f:
+    output_folder, dataset_name, N_S_max, N_iterations_MCMC, zdata, sustain_input = pickle.load(f)
+
+# Directory where the pickle files are stored
+pickle_dir = os.path.join(output_folder, 'pickle_files')
+
+# Get all pickle files for subtypes in the directory
+pickle_files = [f for f in os.listdir(pickle_dir) if f.startswith(f'{dataset_name}_subtype') and f.endswith('.pickle')]
+
+# Iterate through all the pickle files to generate positional variance diagrams
+for pickle_file in pickle_files:
+    # Extract the subtype number from the file name
+    s = int(pickle_file.split('_subtype')[1].split('.pickle')[0])
+    
+    # Load the sample sequences and f for the current subtype
+    pickle_filename_s = os.path.join(pickle_dir, pickle_file)
+    pk = pd.read_pickle(pickle_filename_s)
+    samples_sequence = pk["samples_sequence"]
+    samples_f = pk["samples_f"]
+
+    # Set M as the length of zdata
+    M = len(zdata)
+
+    # Dynamically set the subtype order based on the file number
+    subtype_order = list(range(s + 1))  # e.g., for s=1, subtype_order = [0, 1]
+
+    # Plot the positional variance diagram for the current subtype
+    print(f"Generating PVD for subtype {s} with subtype order: {subtype_order}")
+    tmp = pySuStaIn.ZscoreSustain._plot_sustain_model(sustain_input, samples_sequence, samples_f, M, subtype_order=subtype_order)
+
+    # Access the current figure and modify it
+    fig = plt.gcf()  # Get the current figure
+    fig.set_size_inches(16, 12)  # Resize the figure
+
+    # Adjust axis ticks and labels for all subplots
+    plt.xticks(fontsize=8, rotation=45)  # Adjust x-tick labels
+    plt.yticks(fontsize=8)  # Adjust y-tick labels
+    plt.tight_layout()  # Adjust layout to prevent overlap
+
+    # Save the figure with a unique filename for each subtype
+    fig.savefig(f'positional_variance_diagram_subtype_{s}_fixed.png', dpi=300)
+
+    # Close the plot to avoid displaying multiple figures simultaneously
+    plt.close()
+
+print("All PVDs generated and saved with dynamic subtype orders!")
+
