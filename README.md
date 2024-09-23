@@ -43,15 +43,16 @@ pip install git+https://github.com/ucl-pond/pySuStaIn
 
 Step 1: 
 In terminal run ./nhanes_v2.sh. 
-Ensure the script has execute permissions chmod +x nhanes_v2.sh
-Ensure the data file in same directory as the shell and python scripts 
 
-Step 2: 
-Run nhanes_1000_mcmc_trace.py to plot the MCMC trace and histogram
+Ensure the script has execute permissions chmod +x nhanes_v2.sh  
+Ensure the data file in same directory as the shell and python scripts
+
+Step 2:  
+Run nhanes_1000_mcmc_trace.py to plot the MCMC trace and histogram  
 Run nhanes_pvd_new.py to plot the positional-variance diagram # ensure to specify the optimal subtype number for plotting 
 
-Step 3: 
-Run nhanes_get_subtype.py to get the df with z-scores and subtype and stage allocation for each record
-Upload the above output as csv file (nhanes_zdata_with_subtypes.csv) into jupyter notebook (nhanes_subtype_characteristics.ipynb) for analysis of the characteristics of the subtypes 
+Step 3:   
+Run nhanes_get_subtype.py to get the df with z-scores and subtype and stage allocation for each record  
+Upload the above output as csv file (nhanes_zdata_with_subtypes.csv) into jupyter notebook (nhanes_subtype_characteristics.ipynb) for analysis of the characteristics of the subtypes   
 
 
