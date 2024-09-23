@@ -7,23 +7,15 @@ This project involves a pilot study to evaluate the feasibility, computational t
 We utilized publicly available audiometric data from the National Health and Nutrition Examination Survey (NHANES). NHANES is a program designed to assess the health of adults and children in the United States through cross-sectional evaluations of representative participants. Audiometric data from the NHANES audiometry component for the years 1999–2012 and 2015–2020 were downloaded and merged into a single dataset. The dataset contains air-conduction (AC) measures across five test frequencies: 0.5, 1, 2, 4 and 8 kHz for the left ear per participant.
 
 # File Descriptions: 
-nahnes_all_leftEar+ld.csv: Data file used for pilot
-
-sustain_output_full.pkl: Pickle file containing outputs from 1st python script needed in 2nd and 3rd scripts 
-
-nhanes_v2.sh : Shell script that automates the execution of the project's Python scripts in sequence (_run, _mcmc_trace and _pvd)
-
-nhanes_1000_run.py: Runs SuStaIn on 1000 audiograms records
-
-nhanes_1000_mcmc_trace.py: Generates line plot and histogram of log likelihood across MCMC samples
-
-nhanes_pvd_new.py: Plots positional variance diagram to interpret the subtype progression pattern  
-
-nhanes_get_subtype.py: Assigns each record to a subtype and stage. 
-
-nhanes_zdata_with_subtypes.csv: Z-score transformed dataset - needed as input for jupyter notebook below
-
-nhanes_subtype_characteristics.ipynb: Jupyter notebook to evaluate characteristics of the subtypes in the optimal model 
+nahnes_all_leftEar+ld.csv: Data file used for pilot  
+sustain_output_full.pkl: Pickle file containing outputs from 1st python script needed in 2nd and 3rd scripts   
+nhanes_v2.sh : Shell script that automates the execution of the project's Python scripts in sequence (_run, _mcmc_trace and _pvd)  
+nhanes_1000_run.py: Runs SuStaIn on 1000 audiograms records  
+nhanes_1000_mcmc_trace.py: Generates line plot and histogram of log likelihood across MCMC samples  
+nhanes_pvd_new.py: Plots positional variance diagram to interpret the subtype progression pattern    
+nhanes_get_subtype.py: Assigns each record to a subtype and stage  
+nhanes_zdata_with_subtypes.csv: Z-score transformed dataset - needed as input for jupyter notebook below  
+nhanes_subtype_characteristics.ipynb: Jupyter notebook to evaluate characteristics of the subtypes in the optimal model   
 
 # Installation Instructions: Any dependencies or setup required.
 Create new environment and install SuStaIn and dependencies as per https://github.com/ucl-pond/pySuStaIn/blob/master/notebooks/SuStaInWorkshop.ipynb
