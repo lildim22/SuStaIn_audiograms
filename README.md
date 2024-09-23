@@ -8,13 +8,21 @@ We utilized publicly available audiometric data from the National Health and Nut
 
 # File Descriptions: 
 nahnes_all_leftEar+ld.csv: Data file used for pilot
+
 sustain_output_full.pkl: Pickle file containing outputs from 1st python script needed in 2nd and 3rd scripts 
+
 nhanes_v2.sh : Shell script that automates the execution of the project's Python scripts in sequence (_run, _mcmc_trace and _pvd)
+
 nhanes_1000_run.py: Runs SuStaIn on 1000 audiograms records
+
 nhanes_1000_mcmc_trace.py: Generates line plot and histogram of log likelihood across MCMC samples
+
 nhanes_pvd_new.py: Plots positional variance diagram to interpret the subtype progression pattern  
+
 nhanes_get_subtype.py: Assigns each record to a subtype and stage. 
+
 nhanes_zdata_with_subtypes.csv: Z-score transformed dataset - needed as input for jupyter notebook below
+
 nhanes_subtype_characteristics.ipynb: Jupyter notebook to evaluate characteristics of the subtypes in the optimal model 
 
 # Installation Instructions: Any dependencies or setup required.
